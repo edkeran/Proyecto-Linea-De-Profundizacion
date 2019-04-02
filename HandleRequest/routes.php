@@ -1,5 +1,5 @@
 <?php 
-    include_once '../Controller/registroController.php';
+    require_once ('../Controller/registroController.php');
     $route = $_GET['ruta'];
     // Se Evalua La Ruta Enviada
     $datos = explode(".",$route);

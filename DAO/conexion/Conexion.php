@@ -5,16 +5,16 @@
  */
 class Conexion {
     //Constantes Para La Conexion Con La Base De Datos
-    private CONST usr ="postgres";
-    private CONST pass="1234";
-    private CONST hst = "localhost";
-    private CONST dbnmbr = "shopland";
+    protected CONST usr ="postgres";
+    protected CONST pass="1234";
+    protected CONST hst = "localhost";
+    protected CONST dbnmbr = "shopland";
     function getConexion(){
         try{
-            $conexion = pg_connect("user = ".usr." ".
-                        "password = ".pass." ".
-                        "host = ".hst." ".
-                        "dbname = ".dbnmbr)
+            $conexion = pg_connect("user = ".$this::usr." ".
+                        "password = ".$this::pass." ".
+                        "host = ".$this::hst." ".
+                        "dbname = ".$this::dbnmbr)
                         or die("Hay Ocurrido Un Error Al Conectar Con La Base De Datos :".pg_last_error());
             return $conexion;
         }catch(Exception $e){

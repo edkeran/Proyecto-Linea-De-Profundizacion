@@ -1,52 +1,53 @@
 <?php
     class Usuario{
+
         private $nombre;
         private $apellido;
         private $pass;
-        private $email;
+        private $mail;
         private $usrName;
 
         /**
          * Getters y Setters
          */
         public function getNombre(){
-            return $this->$nombre;
+            return $this->nombre;
         }
 
         public function getApellido(){
-            return $this->$apellido;
+            return $this->apellido;
         }
 
         public function getPass(){
-            return $this->$pass;
+            return $this->pass;
         }
 
         public function getEmail(){
-            return $this->$email;
+            return $this->mail;
         }
 
         public function getUsrName(){
-            return $this->$usrName;
+            return $this->usrName;
         }
 
         public function setNombre($nombre){
-             $this->$nombre = $nombre;
+             $this->nombre = $nombre;
         }
 
         public function setApellido($apellido){
-            $this->$apellido = $apellido;
+            $this->apellido = $apellido;
         }
 
         public function setPass($pass){
-             $this->$pass = $pass;
+             $this->pass = $pass;
         }
 
-        public function setEmail($emal){
-             $this->$email;
+        public function setEmail($email){
+             $this->mail = $email;
         }
 
         public function setUsrName($usrName){
-             $this->$usrName = $usrName;
+             $this->usrName = $usrName;
         }
     }
 

@@ -529,7 +529,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="form-group">
 							<label class="col-form-label">Nombre De Usuario :</label>
-							<input type="email" class="form-control" placeholder="Nombre Usuario" name="nmUsr" required>
+							<input type="text" class="form-control" placeholder="Nombre Usuario" name="nmUsr" required>
 						</div>
 						<div class="form-group">
 							<label class="col-form-label">Contraseña :</label>

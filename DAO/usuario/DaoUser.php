@@ -1,9 +1,12 @@
 <?php
-require_once '../conexion/conexion.php';
-class DaoUser extends conexion{
+require_once 'C:\xampp\htdocs\Proyecto\DAO\conexion\Conexion.php';
+class DaoUser extends Conexion{
     //Funcion Para Crear Un Usuario
     function create(usuario $usr){
-
+        $conn = parent::getConexion();
+        $query = 'INSERT INTO usuario.cliente (nombre,apellido,usr_loggin,key_logging,email) VALUES($1,$2,$3,$4,$5)';
+        $result = pg_query_params($conn,$query,array($usr->getNombre(),$usr->getApellido(),
+        $usr->getUsrName(),$usr->getPass(),$usr->getEmail()));
     }
 
     //Funcion Para Editar Un Usuario
@@ -20,12 +23,7 @@ class DaoUser extends conexion{
     function read(usuario $usr){
 
     }
-
-    //Funcion Para Crear La Conexion Con La Base De Datos
-    function crearConexion(){
-        $db = new Conexion();
-    }
-
+    
 }
 
 ?>
