@@ -14,6 +14,11 @@
             return password_hash($password,PASSWORD_DEFAULT,['cost'=>10]);
         }
 
+        //Funcion Para Validar La Contraseña
+        public static function validarPassword($passIngeresada, $hash){
+            //Se retorna segun la validacion de la funcion 
+            return password_verify($passIngeresada,$hash);
+        }
     }
 
 ?>

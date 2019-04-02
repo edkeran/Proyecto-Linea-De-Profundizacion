@@ -46,8 +46,14 @@ class registroController{
     /**
      *Metodo Para Obtener La Contraseña Encriptada Y Asi Realizar Su Respectiva Validacion
      */
-    private function getPassdb(){
+    private function getPassdb(Usuario $user){
         $daoUsuario  = new DaoUser();
+        $hash = $daoUsuario->getHashPass($user);
+        if (Util::validarPassword($_POST['pass'],$hash)){
+
+        }else{
+            
+        }
         
     }
     
