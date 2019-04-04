@@ -37,11 +37,24 @@ class registroController{
          }
     }
 
+    /**
+     * Funcion Para El Logging Del Usuario
+     */
     public function loginUsuario(){
-        $nombreUsuario = $_POST['userName'];
-        $contrasenaUsuario = $_POST['pass'];
+        $usuario = new Usuario();
+        $usuario->setNombre($_POST['userName']);
+        $usuario->setPass($_POST['pass']);
 
+        if (getPassdb($usuario)){
+            //Usuario Valido
+            $daoUser = new DaoUser();
+            $usuario = $daoUser->read($usuario);
+
+        }else{
+            //Mensaje De Error Retornado
+        }
     }
+
 
     /**
      *Metodo Para Obtener La Contraseña Encriptada Y Asi Realizar Su Respectiva Validacion
@@ -49,12 +62,7 @@ class registroController{
     private function getPassdb(Usuario $user){
         $daoUsuario  = new DaoUser();
         $hash = $daoUsuario->getHashPass($user);
-        if (Util::validarPassword($_POST['pass'],$hash)){
-
-        }else{
-            
-        }
-        
+        return  (Util::validarPassword($user->getPass(),$hash));
     }
     
 

@@ -21,7 +21,12 @@ class DaoUser extends Conexion{
 
     //Funcion Para Traer Un Usuario
     function read(usuario $usr){
-
+        //Obtengo La Conexion Con La Base De Datos
+        $conn = parent::getConexion();
+        //Creo La Consulta
+        $query = 'SELECT * FROM usuario.cliente WHERE usr_login = $1 ';
+        $result = pg_query_params($conn,$query,$usr->getPass());
+        print $result;
     }
 
     //Funcion Para Obtener La Contraseña De La Base De Datos
