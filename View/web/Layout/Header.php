@@ -475,7 +475,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="#" method="post">
+					<form action="../../HandleRequest/routes.php?ruta=registrar.loginUsuario" method="post">
 						<div class="form-group">
 							<label class="col-form-label">Nombre De Usuario</label>
 							<input type="text" class="form-control" placeholder="Usuario" name="usr" required>

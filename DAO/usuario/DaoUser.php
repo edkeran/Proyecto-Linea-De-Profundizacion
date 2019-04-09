@@ -32,7 +32,7 @@ class DaoUser extends Conexion{
     //Funcion Para Obtener La Contraseña De La Base De Datos
     function getHashPass(usuario $usr){
         $conn = parent::getConexion();
-        $query = 'SELECT key_logging FROM usuario.cliente WHERE usr_login = $1 ';
+        $query = 'SELECT key_logging FROM usuario.cliente WHERE usr_loggin = $1 ';
         $result = pg_query_params($conn,$query,array($usr->getPass()));
         return $result;
     }

@@ -21,6 +21,9 @@
             case ("register"):
                 $registro->registrar();
             break;
+            case ("loginUsuario"):
+                $registro->loginUsuario();
+            break;
         }
     }
 

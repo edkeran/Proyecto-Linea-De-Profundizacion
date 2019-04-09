@@ -34,6 +34,7 @@ class registroController{
             $daoUsuario = new DaoUser();
             //Se Crea El Usuario En La Base De Datos 
             $daoUsuario->create($nuevoUsuario);
+            header("Location: ../View/web/index.php");
          }
     }
 
@@ -41,11 +42,12 @@ class registroController{
      * Funcion Para El Logging Del Usuario
      */
     public function loginUsuario(){
+        //Instancio Un Objeto Tipo Usuario
         $usuario = new Usuario();
-        $usuario->setNombre($_POST['userName']);
-        $usuario->setPass($_POST['pass']);
+        $usuario->setNombre($_POST['usr']);
+        $usuario->setPass($_POST['pswd']);
 
-        if (getPassdb($usuario)){
+        if ($this->getPassdb($usuario)){
             //Usuario Valido
             $daoUser = new DaoUser();
             $usuario = $daoUser->read($usuario);
