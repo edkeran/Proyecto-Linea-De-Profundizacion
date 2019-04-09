@@ -490,12 +490,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="sub-w3l">
 							<div class="custom-control custom-checkbox mr-sm-2">
 								<input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-								<label class="custom-control-label" for="customControlAutosizing">Remember me?</label>
+								<label class="custom-control-label" for="customControlAutosizing">Recordarme?</label>
 							</div>
 						</div>
-						<p class="text-center dont-do mt-3">Don't have an account?
+						<p class="text-center dont-do mt-3">No Tienes Una Cuenta?
 							<a href="#" data-toggle="modal" data-target="#exampleModal2">
-								Register Now</a>
+								Registrate ahora</a>
 						</p>
 					</form>
 				</div>
@@ -541,12 +541,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="right-w3l">
 							<input type="submit" class="form-control" value="Registrate">
 						</div>
-						<div class="sub-w3l">
-							<div class="custom-control custom-checkbox mr-sm-2">
-								<input type="checkbox" class="custom-control-input" id="customControlAutosizing2">
-								<label class="custom-control-label" for="customControlAutosizing2">Acepto Los Terminos Y Condiciones</label>
-							</div>
-						</div>
+						
 					</form>
 				</div>
 			</div>
@@ -574,8 +569,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<!-- search -->
 						<div class="col-10 agileits_search">
 							<form class="form-inline" action="#" method="post">
-								<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" required>
-								<button class="btn my-2 my-sm-0" type="submit">Search</button>
+								<input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" required>
+								<button class="btn my-2 my-sm-0" type="submit">Buscar</button>
 							</form>
 						</div>
 						<!-- //search -->

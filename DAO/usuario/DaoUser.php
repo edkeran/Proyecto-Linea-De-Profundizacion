@@ -1,5 +1,8 @@
 <?php
 require_once 'C:\xampp\htdocs\Proyecto\DAO\conexion\Conexion.php';
+/**
+ * Clase Para Realizar Todas Las Consultas Relacionadas Al Perfil De Usuario
+ */
 class DaoUser extends Conexion{
     //Funcion Para Crear Un Usuario
     function create(usuario $usr){
@@ -24,8 +27,8 @@ class DaoUser extends Conexion{
         //Obtengo La Conexion Con La Base De Datos
         $conn = parent::getConexion();
         //Creo La Consulta
-        $query = 'SELECT * FROM usuario.cliente WHERE usr_login = $1 ';
-        $result = pg_query_params($conn,$query,$usr->getPass());
+        $query = 'SELECT * FROM usuario.cliente WHERE usr_loggin = $1 ';
+        $result = pg_query_params($conn,$query,array($usr->getPass()));
         print $result;
     }
 
@@ -33,8 +36,11 @@ class DaoUser extends Conexion{
     function getHashPass(usuario $usr){
         $conn = parent::getConexion();
         $query = 'SELECT key_logging FROM usuario.cliente WHERE usr_loggin = $1 ';
-        $result = pg_query_params($conn,$query,array($usr->getPass()));
-        return $result;
+        $result = pg_query_params($conn,$query,array($usr->getUsrName()))
+            or die(pg_last_error());
+        $arr=pg_fetch_all($result,PGSQL_NUM);
+        // Se Valida Segun El Tipo De Retorno El Dato dskfndsjkf
+        return sizeof($arr[0])>0 ? $arr[0] : false;
     }
     
 }

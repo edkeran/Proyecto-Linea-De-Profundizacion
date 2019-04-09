@@ -54,7 +54,7 @@
 				<div class="row footer-info w3-agileits-info">
 					<!-- footer categories -->
 					<div class="col-md-3 col-sm-6 footer-grids">
-						<h3 class="text-white font-weight-bold mb-3">Categories</h3>
+						<h3 class="text-white font-weight-bold mb-3">Categorias</h3>
 						<ul>
 							<li class="mb-3">
 								<a href="product.html">Mobiles </a>
@@ -79,30 +79,30 @@
 					<!-- //footer categories -->
 					<!-- quick links -->
 					<div class="col-md-3 col-sm-6 footer-grids mt-sm-0 mt-4">
-						<h3 class="text-white font-weight-bold mb-3">Quick Links</h3>
+						<h3 class="text-white font-weight-bold mb-3">Necesitas Mas Información</h3>
 						<ul>
 							<li class="mb-3">
-								<a href="about.html">About Us</a>
+								<a href="about.html">Sobre Nosotros</a>
 							</li>
 							<li class="mb-3">
-								<a href="contact.html">Contact Us</a>
+								<a href="contact.html">Contactanos</a>
 							</li>
 							<li class="mb-3">
-								<a href="help.html">Help</a>
+								<a href="help.html">Ayuda</a>
 							</li>
 							<li class="mb-3">
 								<a href="faqs.html">Faqs</a>
 							</li>
 							<li class="mb-3">
-								<a href="terms.html">Terms of use</a>
+								<a href="terms.html">Condiciones De Uso</a>
 							</li>
 							<li>
-								<a href="privacy.html">Privacy Policy</a>
+								<a href="privacy.html">Politicas De Privacidad</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-3 col-sm-6 footer-grids mt-md-0 mt-4">
-						<h3 class="text-white font-weight-bold mb-3">Get in Touch</h3>
+						<h3 class="text-white font-weight-bold mb-3">Nuestra Informacion</h3>
 						<ul>
 							<li class="mb-3">
 								<i class="fas fa-map-marker"></i> 123 Sebastian, USA.</li>
@@ -122,8 +122,8 @@
 					</div>
 					<div class="col-md-3 col-sm-6 footer-grids w3l-agileits mt-md-0 mt-4">
 						<!-- newsletter -->
-						<h3 class="text-white font-weight-bold mb-3">Newsletter</h3>
-						<p class="mb-3">Free Delivery on your first order!</p>
+						<h3 class="text-white font-weight-bold mb-3">Envianos Un Correo Para Tus Inquietudes</h3>
+						<p class="mb-3">Es gratis la primera entrega de tu producto</p>
 						<form action="#" method="post">
 							<div class="form-group">
 								<input type="email" class="form-control" placeholder="Email" name="email" required="">
@@ -133,7 +133,7 @@
 						<!-- //newsletter -->
 						<!-- social icons -->
 						<div class="footer-grids  w3l-socialmk mt-3">
-							<h3 class="text-white font-weight-bold mb-3">Follow Us on</h3>
+							<h3 class="text-white font-weight-bold mb-3">Siguenos En:</h3>
 							<div class="social">
 								<ul>
 									<li>

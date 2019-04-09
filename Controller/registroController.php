@@ -44,16 +44,17 @@ class registroController{
     public function loginUsuario(){
         //Instancio Un Objeto Tipo Usuario
         $usuario = new Usuario();
-        $usuario->setNombre($_POST['usr']);
+        $usuario->setUsrName($_POST['usr']);
         $usuario->setPass($_POST['pswd']);
 
         if ($this->getPassdb($usuario)){
             //Usuario Valido
             $daoUser = new DaoUser();
             $usuario = $daoUser->read($usuario);
-
+            echo "Usuario Valido";
         }else{
             //Mensaje De Error Retornado
+            echo "Usuario Invalido";
         }
     }
 
@@ -64,7 +65,9 @@ class registroController{
     private function getPassdb(Usuario $user){
         $daoUsuario  = new DaoUser();
         $hash = $daoUsuario->getHashPass($user);
-        return  (Util::validarPassword($user->getPass(),$hash));
+        if($hash == false){
+            return false;
+        }else return (Util::validarPassword($user->getPass(),$hash[0]));
     }
     
 
