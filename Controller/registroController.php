@@ -1,8 +1,8 @@
 <?php 
-require_once ('../DAO/conexion/Conexion.php');
-require_once ('../DAO/usuario/DaoUser.php');
-require_once ('../Entidades/Usuario.php');
-require_once ('../Utilitarios/Util.php');
+require_once '../DAO/conexion/Conexion.php';
+require_once '../DAO/usuario/DaoUser.php';
+require_once '../Entidades/Usuario.php';
+require_once '../Utilitarios/Util.php';
 
 /**
  * Controlador Para Manejar La Logica Del Registro
@@ -32,8 +32,19 @@ class registroController{
             $nuevoUsuario->setEmail($correo);
             $nuevoUsuario->setUsrName($nombreUsuario);
             $daoUsuario = new DaoUser();
-            //Se Crea El Usuario En La Base De Datos 
-            $daoUsuario->create($nuevoUsuario);
+            //Se Valida Que El Correo Y El Nombre Del Usuario Sean Validos
+            if($daoUsuario->validarDatos($nuevoUsuario)){
+                //Se Crea El Usuario En La Base De Datos 
+                $daoUsuario->create($nuevoUsuario);
+                //Mensaje De Creacion Exitosa
+                session_start();
+                $_SESSION['msg'] = 'Su Perfil Se Ha Creado Exitosamente';
+            }else{
+                //Mensaje De Error
+                session_start();
+                $_SESSION['msg'] = 'El Email o Nombre De Usuario Ingresados Ya Existen En El Aplicativo';
+            }
+            //Redirecciono A La Pagina Principal De La Aplicacion
             header("Location: ../View/web/index.php");
          }
     }
@@ -51,6 +62,8 @@ class registroController{
             //Usuario Valido
             $daoUser = new DaoUser();
             $usuario = $daoUser->read($usuario);
+            Util::construirUsuario($usuario);
+            //Si El Usuario Es Valido, Verifico Su Rol 
             echo "Usuario Valido";
         }else{
             //Mensaje De Error Retornado
@@ -72,5 +85,3 @@ class registroController{
     
 
 }
-
-?>

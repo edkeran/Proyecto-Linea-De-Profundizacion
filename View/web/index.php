@@ -1,4 +1,5 @@
-<?php include 'Layout/Header.php';  ?>
+<?php session_start();?>
+<?php include_once 'Layout/Header.php';?>
 	<!-- banner -->
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<!-- Indicators-->
@@ -83,9 +84,9 @@
 		<div class="container py-xl-4 py-lg-2">
 			<!-- tittle heading -->
 			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-				<span>O</span>ur
-				<span>N</span>ew
-				<span>P</span>roducts</h3>
+				<span>N</span>uestros
+				<span>N</span>uevos
+				<span>P</span>roductos</h3>
 			<!-- //tittle heading -->
 			<div class="row">
 				<!-- product left -->
@@ -754,5 +755,7 @@
 			</div>
 		</div>
 	</div>
+	<?php if(isset($_SESSION['msg'])){ echo '<script>alert("'.$_SESSION['msg'].'");</script>';}?>
+	<?php unset($_SESSION['msg']); ?>
 	<!-- middle section -->
 <?php include 'Layout/Footer.php'; ?>

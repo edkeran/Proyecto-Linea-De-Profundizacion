@@ -1,4 +1,5 @@
 <?php 
+    include_once '../Entidades/Usuario.php';
     /**
      * Clase Utilitarias Con Funciones Extras
      */
@@ -19,6 +20,19 @@
             //Se retorna segun la validacion de la funcion 
             return password_verify($passIngeresada,$hash);
         }
+
+        //Funcion Para Limpiar Los Caracteres Ingresados En Las Cajas De Texto < >
+        public static function limpiarCaracateres($msg){
+            $cadenaLimpia = str_replace("<","&lt;",$msg);
+            $cadenaLimpia = str_replace(">","&gt;",$cadenaLimpia);
+            return $cadenaLimpia;
+        }
+
+        //Funcion Para Construir El Objeto Del Usuario
+        public static function construirUsuario($usr){
+            
+        }
+        
     }
 
 ?>

@@ -234,7 +234,7 @@
 			}
 
 			if (total < 3) {
-				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+				alert('La Cantidad Minima Para Realizar El Pedido Es De 3 Productos.Por favor añade mas productos a tu carrito de compra para realizar la peticion');
 				evt.preventDefault();
 			}
 		});

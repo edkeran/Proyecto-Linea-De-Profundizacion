@@ -6,6 +6,8 @@
         private $pass;
         private $mail;
         private $usrName;
+        private $rol;
+        
 
         /**
          * Getters y Setters
@@ -30,6 +32,10 @@
             return $this->usrName;
         }
 
+        public function getRol(){
+            return $this->rol;
+        }
+
         public function setNombre($nombre){
              $this->nombre = $nombre;
         }
@@ -48,6 +54,10 @@
 
         public function setUsrName($usrName){
              $this->usrName = $usrName;
+        }
+
+        public function setRol($rol){
+            $this->rol = $rol;
         }
     }
 

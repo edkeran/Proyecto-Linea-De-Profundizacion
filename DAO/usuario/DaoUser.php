@@ -1,9 +1,11 @@
 <?php
-require_once 'C:\xampp\htdocs\Proyecto\DAO\conexion\Conexion.php';
+require_once __DIR__.'/../conexion/Conexion.php';
+
 /**
  * Clase Para Realizar Todas Las Consultas Relacionadas Al Perfil De Usuario
  */
 class DaoUser extends Conexion{
+
     //Funcion Para Crear Un Usuario
     function create(usuario $usr){
         $conn = parent::getConexion();
@@ -27,9 +29,9 @@ class DaoUser extends Conexion{
         //Obtengo La Conexion Con La Base De Datos
         $conn = parent::getConexion();
         //Creo La Consulta
-        $query = 'SELECT * FROM usuario.cliente WHERE usr_loggin = $1 ';
-        $result = pg_query_params($conn,$query,array($usr->getPass()));
-        print $result;
+        $query = 'SELECT * FROM usuario.cliente WHERE usr_loggin = $1';
+        $result = pg_query_params($conn,$query,array($usr->getUsrName()));
+        return pg_fetch_assoc($result);
     }
 
     //Funcion Para Obtener La Contraseña De La Base De Datos
@@ -41,6 +43,16 @@ class DaoUser extends Conexion{
         $arr=pg_fetch_all($result,PGSQL_NUM);
         // Se Valida Segun El Tipo De Retorno El Dato dskfndsjkf
         return sizeof($arr[0])>0 ? $arr[0] : false;
+    }
+
+    //Funcion para Validar Que El Usuario y El Email Sean Unicos
+    function validarDatos(usuario $usr){
+        $conn = parent::getConexion();
+        $query = 'SELECT 1 FROM usuario.cliente WHERE usr_loggin = $1 OR email = $2 ';
+        $result = pg_query_params($conn,$query,array($usr->getUsrName(),$usr->getEmail()))
+        or die(pg_last_error());
+        $arr = pg_fetch_all($result,PGSQL_NUM); 
+        return $arr == false ? true : false;
     }
     
 }

@@ -51,32 +51,36 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container-fluid">
 			<div class="row main-top-w3l py-2">
 				<div class="col-lg-4 header-most-top">
-					<p class="text-white text-lg-left text-center">Offer Zone Top Deals & Discounts
+					<p class="text-white text-lg-left text-center"> Ofertas Disponibles
 						<i class="fas fa-shopping-cart ml-1"></i>
 					</p>
 				</div>
 				<div class="col-lg-8 header-right mt-lg-0 mt-2">
 					<!-- header lists -->
 					<ul>
-						<li class="text-center border-right text-white">
-							<a class="play-icon popup-with-zoom-anim text-white" href="#small-dialog1">
-								<i class="fas fa-map-marker mr-2"></i>Select Location</a>
-						</li>
+						
 						<li class="text-center border-right text-white">
 							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
-								<i class="fas fa-truck mr-2"></i>Track Order</a>
+								<i class="fas fa-truck mr-2"></i>Sigue Tu Orden</a>
 						</li>
 						<li class="text-center border-right text-white">
 							<i class="fas fa-phone mr-2"></i> 001 234 5678
 						</li>
+
+						<!--Validar Con PHP Si Existe Una Sesion En Curso-->
+						<?php if(!isset($_SESSION["user"])) :?>
 						<li class="text-center border-right text-white">
 							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
 								<i class="fas fa-sign-in-alt mr-2"></i> Ingresar </a>
 						</li>
+						<?php endif;?>
+						<!--Boton De Registro O De LogOut Segun Sea El Caso-->
+						<?php if(!isset($_SESSION["user"])):?>
 						<li class="text-center text-white">
 							<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
 								<i class="fas fa-sign-out-alt mr-2"></i>Registrate </a>
 						</li>
+						<?php endif;?>
 					</ul>
 					<!-- //header lists -->
 				</div>
@@ -88,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div id="small-dialog1" class="mfp-hide">
 		<div class="select-city">
 			<h3>
-				<i class="fas fa-map-marker"></i> Please Select Your Location</h3>
+				<i class="fas fa-map-marker"></i> Selecciona Tu Ubicacion</h3>
 			<select class="list_of_cities">
 				<optgroup label="Popular Cities">
 					<option selected style="display:none;color:#eee;">Select City</option>
@@ -557,7 +561,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<!-- logo -->
 				<div class="col-md-3 logo_agile">
 					<h1 class="text-center">
-						<a href="index.html" class="font-weight-bold font-italic">
+						<a href="index.php" class="font-weight-bold font-italic">
 							<img src="images/logo2.png" alt=" " class="img-fluid">Electro Store
 						</a>
 					</h1>
@@ -598,19 +602,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="navbar-inner">
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<?php include_once '../../Controller/categoriasController.php'; ?>
+				<?php $cat = new categoriasController(); $datos = $cat->readCategorias();?>
 				<div class="agileits-navi_search">
 					<form action="#" method="post">
 						<select id="agileinfo-nav_search" name="agileinfo_search" class="border" required="">
-							<option value="">All Categories</option>
-							<option value="Televisions">Televisions</option>
-							<option value="Headphones">Headphones</option>
-							<option value="Computers">Computers</option>
-							<option value="Appliances">Appliances</option>
-							<option value="Mobiles">Mobiles</option>
-							<option value="Fruits &amp; Vegetables">Tv &amp; Video</option>
-							<option value="iPad & Tablets">iPad & Tablets</option>
-							<option value="Cameras & Camcorders">Cameras & Camcorders</option>
-							<option value="Home Audio & Theater">Home Audio & Theater</option>
+							<?php if($datos !=  false) :?>
+								<option value="">Todas Las Categorias</option>
+								<?php foreach($datos as $registro):?>
+									<option value="<?php echo $registro['id'];?>"><?php echo $registro['descripcion'];?></option>
+								<?php endforeach;?>
+							<?php else:?>
+								<option value="">No Hay Categorias Disponibles<option>
+							<?php endif;?>
 						</select>
 					</form>
 				</div>
@@ -621,7 +625,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto text-center mr-xl-5">
 						<li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
-							<a class="nav-link" href="index.html">Home
+							<a class="nav-link" href="index.php">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
