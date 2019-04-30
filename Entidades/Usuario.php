@@ -59,10 +59,7 @@
         public function setRol($rol){
             $this->rol = $rol;
         }
-
-        //Deconstructor De La Clase
-        function __destruct() {
-        }
+        
     }
 
 
