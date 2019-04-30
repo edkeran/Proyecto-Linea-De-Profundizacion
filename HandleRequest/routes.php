@@ -1,5 +1,6 @@
 <?php 
     require_once ('../Controller/registroController.php');
+    require_once ('../Utilitarios/ManageSession.php');
     $route = $_GET['ruta'];
     // Se Evalua La Ruta Enviada
     $datos = explode(".",$route);
@@ -9,6 +10,8 @@
     switch ($ruta){
         case ("registrar"):
         llamarFuncionesRegistroController($funcion);
+        case ("session"):
+        LlamarFuncionesSesion($funcion);
         break;
     }
 
@@ -23,6 +26,17 @@
             break;
             case ("loginUsuario"):
                 $registro->loginUsuario();
+            break;
+        }
+    }
+
+    /**
+     * Metodo Para Llamar A la Clase Que Administra Las Sesiones
+     */
+    function LlamarFuncionesSesion($funcion){
+        switch($funcion){
+            case ("LogOut"):
+                ManageSession::cerrarSession();
             break;
         }
     }

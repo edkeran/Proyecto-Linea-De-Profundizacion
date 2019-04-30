@@ -9,9 +9,9 @@ class DaoUser extends Conexion{
     //Funcion Para Crear Un Usuario
     function create(usuario $usr){
         $conn = parent::getConexion();
-        $query = 'INSERT INTO usuario.cliente (nombre,apellido,usr_loggin,key_logging,email) VALUES($1,$2,$3,$4,$5)';
+        $query = 'INSERT INTO usuario.cliente (nombre,apellido,usr_loggin,key_logging,email,rol) VALUES($1,$2,$3,$4,$5,$6)';
         $result = pg_query_params($conn,$query,array($usr->getNombre(),$usr->getApellido(),
-        $usr->getUsrName(),$usr->getPass(),$usr->getEmail()));
+        $usr->getUsrName(),$usr->getPass(),$usr->getEmail(),$usr->getRol()));
     }
 
     //Funcion Para Editar Un Usuario

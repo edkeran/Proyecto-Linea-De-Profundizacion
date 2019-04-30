@@ -68,19 +68,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</li>
 
 						<!--Validar Con PHP Si Existe Una Sesion En Curso-->
-						<?php if(!isset($_SESSION["user"])) :?>
+						<?php if(!isset($_SESSION["Usuario"])) :?>
 						<li class="text-center border-right text-white">
 							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
 								<i class="fas fa-sign-in-alt mr-2"></i> Ingresar </a>
 						</li>
 						<?php endif;?>
 						<!--Boton De Registro O De LogOut Segun Sea El Caso-->
-						<?php if(!isset($_SESSION["user"])):?>
 						<li class="text-center text-white">
+							<?php if (isset($_SESSION['Usuario'])):?>
+							<a href="../../HandleRequest/routes.php?ruta=session.LogOut" class="text-white">
+								<i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesion </a>
+							<?php else :?>
 							<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
 								<i class="fas fa-sign-out-alt mr-2"></i>Registrate </a>
+						<?php endif; ?>
 						</li>
-						<?php endif;?>
 					</ul>
 					<!-- //header lists -->
 				</div>

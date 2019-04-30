@@ -3,6 +3,7 @@ require_once '../DAO/conexion/Conexion.php';
 require_once '../DAO/usuario/DaoUser.php';
 require_once '../Entidades/Usuario.php';
 require_once '../Utilitarios/Util.php';
+require_once '../Utilitarios/Buildings.php';
 
 /**
  * Controlador Para Manejar La Logica Del Registro
@@ -20,6 +21,8 @@ class registroController{
          $confirmarContrasena = $_POST['confirmPass'];
          $apellido = $_POST['apellido'];
          $nombreUsuario= $_POST['nmUsr'];
+         //Valor Por Defecto Del Rol Del Usuario
+         $rol = 3;
          //Se Validan Las Credenciales Ingresadas
          if ($contrasena = $confirmarContrasena){
             //Se Instancia Un Objeto Tipo Usuario
@@ -31,6 +34,7 @@ class registroController{
             $nuevoUsuario->setPass($contrasena);
             $nuevoUsuario->setEmail($correo);
             $nuevoUsuario->setUsrName($nombreUsuario);
+            $nuevoUsuario->setRol($rol);
             $daoUsuario = new DaoUser();
             //Se Valida Que El Correo Y El Nombre Del Usuario Sean Validos
             if($daoUsuario->validarDatos($nuevoUsuario)){
@@ -50,7 +54,7 @@ class registroController{
     }
 
     /**
-     * Funcion Para El Logging Del Usuario
+     * Funcion Para El Loging Del Usuario
      */
     public function loginUsuario(){
         //Instancio Un Objeto Tipo Usuario
@@ -59,18 +63,24 @@ class registroController{
         $usuario->setPass($_POST['pswd']);
 
         if ($this->getPassdb($usuario)){
+            
             //Usuario Valido
             $daoUser = new DaoUser();
             $usuario = $daoUser->read($usuario);
-            Util::construirUsuario($usuario);
-            //Si El Usuario Es Valido, Verifico Su Rol 
-            echo "Usuario Valido";
+            $ensamblador = new Buildings();
+            $usuario = $ensamblador->construirUsuario($usuario);
+            //Si El Usuario Es Valido, Verifico Su Rol Para Redireccionarlo a Su Respectiva Pagina
+            session_start();
+            $_SESSION['Usuario'] = $usuario;
+            header('location: ../View/web/'.Util::validarRol($usuario->getRol()));
+
         }else{
-            //Mensaje De Error Retornado
-            echo "Usuario Invalido";
+            //Mensaje De Error Retornado En La Pantalla Principal Del Usuario
+            session_start();
+            $_SESSION['Invalid'] = "Las Credenciales Ingresadas En El Loggin Son Invalidas Intente Nuevamente";
+            header('Location: ../View/web/index.php');
         }
     }
-
 
     /**
      *Metodo Para Obtener La Contraseña Encriptada Y Asi Realizar Su Respectiva Validacion

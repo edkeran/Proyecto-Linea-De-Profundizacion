@@ -1,5 +1,4 @@
 <?php 
-    include_once '../Entidades/Usuario.php';
     /**
      * Clase Utilitarias Con Funciones Extras
      */
@@ -22,15 +21,28 @@
         }
 
         //Funcion Para Limpiar Los Caracteres Ingresados En Las Cajas De Texto < >
+        //IMPORTANTE USARLA
         public static function limpiarCaracateres($msg){
             $cadenaLimpia = str_replace("<","&lt;",$msg);
             $cadenaLimpia = str_replace(">","&gt;",$cadenaLimpia);
             return $cadenaLimpia;
         }
 
-        //Funcion Para Construir El Objeto Del Usuario
-        public static function construirUsuario($usr){
-            
+        //Funcion Para Validar El Rol Del Usuario
+        public static function validarRol($rol){
+            switch ($rol){
+                case 1:
+                    //ADMINISTRADOR
+                    return '';
+                case 2:
+                    //VENDEDOR
+                    return '';
+                case 3:
+                    //CLIENTE
+                    return 'index.php';
+
+            }
+
         }
         
     }
