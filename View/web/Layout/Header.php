@@ -477,7 +477,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //shop locator (popup) -->
 
 	<!-- modals -->
-	<!-- log in -->
+	<!-- Modal Del Log-In -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -506,6 +506,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<label class="custom-control-label" for="customControlAutosizing">Recordarme?</label>
 							</div>
 						</div>
+						<p class="text-center dont-do mt-3">No Tienes Una Cuenta?
+							<a href="#" data-toggle="modal" data-target="#exampleModal2">
+								Registrate ahora</a>
+						</p>
+
 						<p class="text-center dont-do mt-3">No Tienes Una Cuenta?
 							<a href="#" data-toggle="modal" data-target="#exampleModal2">
 								Registrate ahora</a>
