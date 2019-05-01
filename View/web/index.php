@@ -1,3 +1,4 @@
+<?php require_once ('../../Entidades/Usuario.php'); ?>
 <?php session_start();?>
 <?php include_once 'Layout/Header.php';?>
 	<!-- banner -->

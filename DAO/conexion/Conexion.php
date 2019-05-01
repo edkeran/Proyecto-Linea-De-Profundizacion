@@ -5,6 +5,7 @@
  */
 class Conexion {
     //Constantes Para La Conexion Con La Base De Datos
+    //Solo Son Visubles En El Contexto De Sus Hijos y Padres
     protected CONST usr ="postgres";
     protected CONST pass="1234";
     protected CONST hst = "localhost";

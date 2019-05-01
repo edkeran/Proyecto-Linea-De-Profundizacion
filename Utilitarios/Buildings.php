@@ -1,5 +1,6 @@
 <?php 
 require_once('../Entidades/Usuario.php');
+require_once('../Entidades/Rol.php');
 
 /**
  * Clase Para Realizar La Respectiva Construccion De Las Entidades De La Base De Datos
@@ -19,9 +20,11 @@ class Buildings{
     }
 
     //Funcion Para Construir Un Objeto De Rol
-    public Static function construirRol($rol){
-        
-    
+    public Static function construirRol($role){
+        $rol = new Rol();
+        $rol->setId($role['id']);
+        $rol->setDescripcion($role['descripcion']);
+        return rol;
     }
 
 

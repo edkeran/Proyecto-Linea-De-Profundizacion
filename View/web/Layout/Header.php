@@ -58,7 +58,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-lg-8 header-right mt-lg-0 mt-2">
 					<!-- header lists -->
 					<ul>
-						
+					<?php if(isset($_SESSION['Usuario'])):?>
+						<li class="text-center border-right text-white">
+							<a href="#" class="text-white">
+								<?php $user = $_SESSION['Usuario'];?>
+								<i class="fas fa-truck mr-2"></i><?php echo($user->getNombre()); ?></a>
+						</li>
+					<?php endif;?>
 						<li class="text-center border-right text-white">
 							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
 								<i class="fas fa-truck mr-2"></i>Sigue Tu Orden</a>
@@ -471,7 +477,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //shop locator (popup) -->
 
 	<!-- modals -->
-	<!-- log in -->
+	<!-- Modal Del Log-In -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -500,6 +506,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<label class="custom-control-label" for="customControlAutosizing">Recordarme?</label>
 							</div>
 						</div>
+						<p class="text-center dont-do mt-3">No Tienes Una Cuenta?
+							<a href="#" data-toggle="modal" data-target="#exampleModal2">
+								Registrate ahora</a>
+						</p>
+
 						<p class="text-center dont-do mt-3">No Tienes Una Cuenta?
 							<a href="#" data-toggle="modal" data-target="#exampleModal2">
 								Registrate ahora</a>
