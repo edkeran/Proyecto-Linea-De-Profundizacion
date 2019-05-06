@@ -1,23 +1,27 @@
 <?php
 require_once __DIR__.'/../conexion/Conexion.php';
+
 /**
  * Clase Para Realizar Todas Las Consultas Relacionadas A Las Categorias Disponibles
  */
-
 class DaoCategoria extends Conexion{
 
     //Funcion Para Crear Una Nueva Categoria
-    function create(){
-        
+    function create(Categoria $categoria){
+        $conn = parent::getConexion();
+        $query = 'INSERT INTO usuario.categoria (descripcion) VALUES($1)';
+        pg_query_params($conn, $query, array($categoria->getDescripcion()));
     }
 
     //Funcion Para Editar Una Categoria
-    function edit(){
+    function edit(Categoria $categoria){
+        $conn = parent::getConexion();
+        //$query = 'UPDATE ';
 
     }
 
     //Funcion Para Eliminar Una Categoria
-    function delete(){
+    function delete(Categoria $categoria){
 
     }
 

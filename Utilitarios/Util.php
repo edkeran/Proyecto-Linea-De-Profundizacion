@@ -39,12 +39,17 @@
                     return '';
                 case 3:
                     //CLIENTE
-                    return 'index.php';
+                    return 'index';
 
             }
 
         }
+
+        /**
+         * Metodo Para Redireccionar a una pagina de error PHP
+         */
+        public static function paginaError(){
+            header("Location: ../View/errorPages/index");
+        }
         
     }
-
-?>

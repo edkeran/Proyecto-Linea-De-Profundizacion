@@ -12,4 +12,11 @@ class categoriasController{
          $datos = $cat->read();
          return $datos;
     }
+
+    function crearCategorias($categoria){
+        $dbCat = new DaoCategoria();
+        $datos = $dbCat->create($categoria);
+    }
 }
+
+

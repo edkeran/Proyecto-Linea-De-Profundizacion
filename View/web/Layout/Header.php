@@ -83,7 +83,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<!--Boton De Registro O De LogOut Segun Sea El Caso-->
 						<li class="text-center text-white">
 							<?php if (isset($_SESSION['Usuario'])):?>
-							<a href="../../HandleRequest/routes.php?ruta=session.LogOut" class="text-white">
+							<a href="../../HandleRequest/routes?ruta=session.LogOut" class="text-white">
 								<i class="fas fa-sign-out-alt mr-2"></i>Cerrar Sesion </a>
 							<?php else :?>
 							<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
@@ -488,7 +488,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="../../HandleRequest/routes.php?ruta=registrar.loginUsuario" method="post">
+					<form action="../../HandleRequest/routes?ruta=registrar.loginUsuario" method="post">
 						<div class="form-group">
 							<label class="col-form-label">Nombre De Usuario</label>
 							<input type="text" class="form-control" placeholder="Usuario" name="usr" required>
@@ -511,9 +511,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								Registrate ahora</a>
 						</p>
 
-						<p class="text-center dont-do mt-3">No Tienes Una Cuenta?
-							<a href="#" data-toggle="modal" data-target="#exampleModal2">
-								Registrate ahora</a>
+						<p class="text-center dont-do mt-3">Eres Un Vendedor?
+							<a href="../web/admin/pages/VendedorPages/RegisterVendedor" >
+								Dale Click A Este Link</a>
 						</p>
 					</form>
 				</div>
@@ -531,7 +531,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="../../HandleRequest/routes.php?ruta=registrar.register" method="post">
+					<form action="../../HandleRequest/routes?ruta=registrar.register" method="post">
 						<div class="form-group">
 							<label class="col-form-label">Nombre :</label>
 							<input type="text" class="form-control" placeholder="Nombre" name="nombre" required>

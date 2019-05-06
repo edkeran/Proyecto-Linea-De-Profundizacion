@@ -244,17 +244,17 @@
 	<!-- password-script -->
 	<script>
 		window.onload = function () {
-			document.getElementById("password1").onchange = validatePassword;
-			document.getElementById("password2").onchange = validatePassword;
+			document.getElementById("pass1").onchange = validatePassword;
+			document.getElementById("pass2").onchange = validatePassword;
 		}
 
 		function validatePassword() {
-			var pass2 = document.getElementById("password2").value;
-			var pass1 = document.getElementById("password1").value;
+			var pass2 = document.getElementById("pass2").value;
+			var pass1 = document.getElementById("pass1").value;
 			if (pass1 != pass2)
-				document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+				document.getElementById("pass2").setCustomValidity("Las Contraseñas No Coinciden");
 			else
-				document.getElementById("password2").setCustomValidity('');
+				document.getElementById("pass2").setCustomValidity('');
 			//empty string means no validation error
 		}
 	</script>
