@@ -27,6 +27,9 @@
             case ("loginUsuario"):
                 $registro->loginUsuario();
             break;
+            case ("ejemplo"):
+                $registro->vistaConValores();
+            break;
         }
     }
 

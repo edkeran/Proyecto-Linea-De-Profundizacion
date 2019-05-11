@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Editors | Bootstrap Based Admin Template - Material Design</title>
+    <title>Advanced Form Elements | Bootstrap Based Admin Template - Material Design</title>
+
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -20,6 +21,27 @@
 
     <!-- Animation Css -->
     <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Colorpicker Css -->
+    <link href="../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+
+    <!-- Dropzone Css -->
+    <link href="../../plugins/dropzone/dropzone.css" rel="stylesheet">
+
+    <!-- Multi Select Css -->
+    <link href="../../plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+    <!-- Bootstrap Spinner Css -->
+    <link href="../../plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+
+    <!-- Bootstrap Tagsinput Css -->
+    <link href="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+
+    <!-- Bootstrap Select Css -->
+    <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- noUISlider Css -->
+    <link href="../../plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 
     <!-- Custom Css -->
     <link href="../../css/style.css" rel="stylesheet">
@@ -66,7 +88,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">PANEL ADMINISTRATIVO - <?php  $_SESSION['NombreVendedor'];?> </a>
+                <a class="navbar-brand" href="../../index.html">ADMINBSB - MATERIAL DESIGN</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -447,7 +469,7 @@
                             <li>
                                 <a href="../../pages/forms/basic-form-elements.html">Basic Form Elements</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="../../pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
                             </li>
                             <li>
@@ -459,7 +481,7 @@
                             <li>
                                 <a href="../../pages/forms/form-wizard.html">Form Wizard</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="../../pages/forms/editors.html">Editors</a>
                             </li>
                         </ul>
@@ -794,95 +816,147 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>EDITORS</h2>
+                <h2>Formulario Para Crear Un Nuevo Producto</h2>
             </div>
+            <!-- Advanced Select -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Crear Producto
+                                <small> Publicalo Hoy Mismo</small>
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>Basic</b>
+                                    </p>
+                                    <select class="form-control show-tick">
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
 
-            <!-- CKEditor -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                CKEDITOR
-                                <small>CKEditor is a ready-for-use HTML text editor designed to simplify web content creation. Taken from <a href="http://ckeditor.com/" target="_blank">ckeditor.com</a></small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <textarea id="ckeditor">
-                                <h2>WYSIWYG Editor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper sapien non nisl facilisis bibendum in quis tellus. Duis in urna bibendum turpis pretium fringilla. Aenean neque velit, porta eget mattis ac, imperdiet quis nisi. Donec non dui et tortor vulputate luctus. Praesent consequat rhoncus velit, ut molestie arcu venenatis sodales.</p>
-                                <h3>Lacinia</h3>
-                                <ul>
-                                    <li>Suspendisse tincidunt urna ut velit ullamcorper fermentum.</li>
-                                    <li>Nullam mattis sodales lacus, in gravida sem auctor at.</li>
-                                    <li>Praesent non lacinia mi.</li>
-                                    <li>Mauris a ante neque.</li>
-                                    <li>Aenean ut magna lobortis nunc feugiat sagittis.</li>
-                                </ul>
-                                <h3>Pellentesque adipiscing</h3>
-                                <p>Maecenas quis ante ante. Nunc adipiscing rhoncus rutrum. Pellentesque adipiscing urna mi, ut tempus lacus ultrices ac. Pellentesque sodales, libero et mollis interdum, dui odio vestibulum dolor, eu pellentesque nisl nibh quis nunc. Sed porttitor leo adipiscing venenatis vehicula. Aenean quis viverra enim. Praesent porttitor ut ipsum id ornare.</p>
-                            </textarea>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>With OptGroups</b>
+                                    </p>
+                                    <select class="form-control show-tick">
+                                        <optgroup label="Picnic">
+                                            <option>Mustard</option>
+                                            <option>Ketchup</option>
+                                            <option>Relish</option>
+                                        </optgroup>
+                                        <optgroup label="Camping">
+                                            <option>Tent</option>
+                                            <option>Flashlight</option>
+                                            <option>Toilet Paper</option>
+                                        </optgroup>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>Multiple Select</b>
+                                    </p>
+                                    <select class="form-control show-tick" multiple>
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>With Search Bar</b>
+                                    </p>
+                                    <select class="form-control show-tick" data-live-search="true">
+                                        <option>Hot Dog, Fries and a Soda</option>
+                                        <option>Burger, Shake and a Smile</option>
+                                        <option>Sugar, Spice and all things nice</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>Max Selection Limit: 2</b>
+                                    </p>
+                                    <select class="form-control show-tick" multiple>
+                                        <optgroup label="Condiments" data-max-options="2">
+                                            <option>Mustard</option>
+                                            <option>Ketchup</option>
+                                            <option>Relish</option>
+                                        </optgroup>
+                                        <optgroup label="Breads" data-max-options="2">
+                                            <option>Plain</option>
+                                            <option>Steamed</option>
+                                            <option>Toasted</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>Display Count</b>
+                                    </p>
+                                    <select class="form-control show-tick" multiple data-selected-text-format="count">
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                        <option>Onions</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>With SubText</b>
+                                    </p>
+                                    <select class="form-control show-tick" data-show-subtext="true">
+                                        <option data-subtext="French's">Mustard</option>
+                                        <option data-subtext="Heinz">Ketchup</option>
+                                        <option data-subtext="Sweet">Relish</option>
+                                        <option data-subtext="Miracle Whip">Mayonnaise</option>
+                                        <option data-divider="true"></option>
+                                        <option data-subtext="Honey">Barbecue Sauce</option>
+                                        <option data-subtext="Ranch">Salad Dressing</option>
+                                        <option data-subtext="Sweet &amp; Spicy">Tabasco</option>
+                                        <option data-subtext="Chunky">Salsa</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>
+                                        <b>Disabled Option</b>
+                                    </p>
+                                    <select class="form-control show-tick">
+                                        <option>Mustard</option>
+                                        <option disabled>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# CKEditor -->
-            <!-- TinyMCE -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                TINYMCE
-                                <small>Taken from <a href="https://www.tinymce.com" target="_blank">www.tinymce.com</a></small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <textarea id="tinymce">
-                                <h2>WYSIWYG Editor</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper sapien non nisl facilisis bibendum in quis tellus. Duis in urna bibendum turpis pretium fringilla. Aenean neque velit, porta eget mattis ac, imperdiet quis nisi. Donec non dui et tortor vulputate luctus. Praesent consequat rhoncus velit, ut molestie arcu venenatis sodales.</p>
-                                <h3>Lacinia</h3>
-                                <ul>
-                                    <li>Suspendisse tincidunt urna ut velit ullamcorper fermentum.</li>
-                                    <li>Nullam mattis sodales lacus, in gravida sem auctor at.</li>
-                                    <li>Praesent non lacinia mi.</li>
-                                    <li>Mauris a ante neque.</li>
-                                    <li>Aenean ut magna lobortis nunc feugiat sagittis.</li>
-                                </ul>
-                                <h3>Pellentesque adipiscing</h3>
-                                <p>Maecenas quis ante ante. Nunc adipiscing rhoncus rutrum. Pellentesque adipiscing urna mi, ut tempus lacus ultrices ac. Pellentesque sodales, libero et mollis interdum, dui odio vestibulum dolor, eu pellentesque nisl nibh quis nunc. Sed porttitor leo adipiscing venenatis vehicula. Aenean quis viverra enim. Praesent porttitor ut ipsum id ornare.</p>
-                            </textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# TinyMCE -->
+            <!-- #END# Advanced Select -->
         </div>
     </section>
+
 
     <!-- Jquery Core Js -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
@@ -896,18 +970,33 @@
     <!-- Slimscroll Plugin Js -->
     <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
+    <!-- Bootstrap Colorpicker Js -->
+    <script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+    <!-- Dropzone Plugin Js -->
+    <script src="../../plugins/dropzone/dropzone.js"></script>
+
+    <!-- Input Mask Plugin Js -->
+    <script src="../../plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="../../plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- Jquery Spinner Plugin Js -->
+    <script src="../../plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+    <!-- Bootstrap Tags Input Plugin Js -->
+    <script src="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+    <!-- noUISlider Plugin Js -->
+    <script src="../../plugins/nouislider/nouislider.js"></script>
+
     <!-- Waves Effect Plugin Js -->
     <script src="../../plugins/node-waves/waves.js"></script>
 
-    <!-- Ckeditor -->
-    <script src="../../plugins/ckeditor/ckeditor.js"></script>
-
-    <!-- TinyMCE -->
-    <script src="../../plugins/tinymce/tinymce.js"></script>
-
     <!-- Custom Js -->
     <script src="../../js/admin.js"></script>
-    <script src="../../js/pages/forms/editors.js"></script>
+    <script src="../../js/pages/forms/advanced-form-elements.js"></script>
 
     <!-- Demo Js -->
     <script src="../../js/demo.js"></script>

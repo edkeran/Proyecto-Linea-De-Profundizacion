@@ -47,6 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
+	<header><?php  echo $this->datosVista; ?> </header>
 	<!-- top-header -->
 	<div class="agile-main-top">
 		<div class="container-fluid">

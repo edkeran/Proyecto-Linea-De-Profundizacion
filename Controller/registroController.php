@@ -4,11 +4,12 @@ require_once '../DAO/usuario/DaoUser.php';
 require_once '../Entidades/Usuario.php';
 require_once '../Utilitarios/Util.php';
 require_once '../Utilitarios/Buildings.php';
+require_once 'BaseController/BaseController.php';
 
 /**
  * Controlador Para Manejar La Logica Del Registro
  */
-class registroController
+class registroController extends BaseController
 {
 
     /**
@@ -115,4 +116,12 @@ class registroController
             return false;
         } else return (Util::validarPassword($user->getPass(), $hash[0]));
     }
+
+    /**
+     * Metodo De Prueba
+     */
+    public function vistaConValores(){
+        return $this->view("about.php",45);
+    }
+
 }

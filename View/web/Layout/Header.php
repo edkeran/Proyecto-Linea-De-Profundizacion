@@ -25,15 +25,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //Meta tag Keywords -->
 
 	<!-- Custom-Files -->
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/../../../proyecto/View/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Bootstrap css -->
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/../../../proyecto/View/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Main css -->
-	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<link rel="stylesheet" href="/../../../proyecto/View/web/css/fontawesome-all.css">
 	<!-- Font-Awesome-Icons-CSS -->
-	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/../../proyecto/View/web/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- pop-up-box -->
-	<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/../../proyecto/View/web/css/menu.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- menu style -->
 	<!-- //Custom-Files -->
 
@@ -511,9 +511,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								Registrate ahora</a>
 						</p>
 
-						<p class="text-center dont-do mt-3">Eres Un Vendedor?
+						<p class="text-center dont-do mt-3">Quieres Asociarte?
 							<a href="../web/admin/pages/VendedorPages/RegisterVendedor" >
-								Dale Click A Este Link</a>
+								Registrarte</a>
 						</p>
 					</form>
 				</div>

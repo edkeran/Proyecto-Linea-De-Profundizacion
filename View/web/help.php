@@ -47,7 +47,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 
 <body>
-	<!-- top-header -->
+<a href="../../HandleRequest/routes?ruta=registrar.ejemplo" >Registrarte</a>	<!-- top-header -->
 	<div class="agile-main-top">
 		<div class="container-fluid">
 			<div class="row main-top-w3l py-2">
