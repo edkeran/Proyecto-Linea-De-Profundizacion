@@ -3,7 +3,7 @@ ErrorDocument 500 /proyecto/View/web/ErrorPages/404.html
 ErrorDocument 403 /proyecto/View/web/ErrorPages/404.html
 ErrorDocument 401 /proyecto/View/web/ErrorPages/404.html
 
-#ServerSignature Off
+ServerSignature Off
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
@@ -11,3 +11,8 @@ ErrorDocument 401 /proyecto/View/web/ErrorPages/404.html
     RewriteCond %{REQUEST_FILENAME}.php -f
     RewriteRule ^(.*)$ $1.php
 </IfModule>
+
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>

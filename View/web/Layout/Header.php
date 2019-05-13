@@ -25,7 +25,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //Meta tag Keywords -->
 
 	<!-- Custom-Files -->
-	<link href="/../../../proyecto/View/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/../../../../<?php __DIR__?>/proyecto/View/web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Bootstrap css -->
 	<link href="/../../../proyecto/View/web/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Main css -->
@@ -576,7 +576,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="col-md-3 logo_agile">
 					<h1 class="text-center">
 						<a href="index.php" class="font-weight-bold font-italic">
-							<img src="images/logo2.png" alt=" " class="img-fluid">Electro Store
+							<img src="/../../../proyecto/View/web/images/logo2.png" alt=" " class="img-fluid">Electro Store
 						</a>
 					</h1>
 				</div>
@@ -616,7 +616,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="navbar-inner">
 		<div class="container">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<?php include_once '../../Controller/categoriasController.php'; ?>
+				<?php include_once __DIR__.'/../../../Controller/categoriasController.php'; ?>
 				<?php $cat = new categoriasController(); $datos = $cat->readCategorias();?>
 				<div class="agileits-navi_search">
 					<form action="#" method="post">

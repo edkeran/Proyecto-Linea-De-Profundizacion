@@ -124,4 +124,5 @@ class registroController extends BaseController
         return $this->view("about.php",45);
     }
 
+    
 }
