@@ -115,14 +115,5 @@ class registroController extends BaseController
         if ($hash == false) {
             return false;
         } else return (Util::validarPassword($user->getPass(), $hash[0]));
-    }
-
-    /**
-     * Metodo De Prueba
-     */
-    public function vistaConValores(){
-        return $this->view("about.php",45);
-    }
-
-    
+    }    
 }

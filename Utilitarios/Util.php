@@ -28,7 +28,7 @@
             return $cadenaLimpia;
         }
 
-        //Funcion Para Validar El Rol Del Usuario
+        //Funcion Para Validar El Rol Del Usuario Para Retornalo a Su Respeciva Vista
         public static function validarRol($rol){
             switch ($rol){
                 case 1:
@@ -36,7 +36,7 @@
                     return '';
                 case 2:
                     //VENDEDOR
-                    return '';
+                    return 'admin/pages/VendedorPages/VendedorDashboard';
                 case 3:
                     //CLIENTE
                     return 'index';

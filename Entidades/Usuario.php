@@ -7,6 +7,7 @@
         private $mail;
         private $usrName;
         private $rol;
+        private $idUsuario;
         
 
         /**
@@ -58,6 +59,14 @@
 
         public function setRol($rol){
             $this->rol = $rol;
+        }
+
+        public function setIdUsuario($idUser){
+            $this->idUsuario = $idUser;
+        }
+
+        public function getIdUsuario(){
+            return $this->idUsuario;
         }
         
     }

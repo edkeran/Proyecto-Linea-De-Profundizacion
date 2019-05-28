@@ -11,6 +11,7 @@ class Buildings{
     //Funcion Para Construir El Objeto Del Usuario
     public function construirUsuario($usr){
         $usuario = new Usuario();
+        $usuario->setIdUsuario($usr['id_cliente']);
         $usuario->setApellido($usr['nombre']);
         $usuario->setNombre($usr['apellido']);
         $usuario->setUsrName($usr['usr_loggin']);
@@ -25,6 +26,12 @@ class Buildings{
         $rol->setId($role['id']);
         $rol->setDescripcion($role['descripcion']);
         return rol;
+    }
+
+    //Funcion Para Construir Un Producto
+    //TODO: PENDIENTE DE ANALISIS
+    public static function construirProducto($produc){
+        $producto = new Producto();
     }
 
 

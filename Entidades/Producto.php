@@ -2,6 +2,8 @@
 /**
  * Clase Para Representar La Entidad En La DB Del Objeto Producto
  */
+include_once 'Categoria.php';
+
 class Producto
 {
     private $id;
@@ -9,7 +11,9 @@ class Producto
     private $descripcion;
     private $imagen;
     private $idVendedor;
-
+    private $Categoria;
+    private $precio;
+    private $cantidad;
     
     public function getId()
     {
@@ -33,7 +37,11 @@ class Producto
 
     public function getDescripcion()
     {
-        $this->descripcion;
+        return $this->descripcion;
+    }
+
+    public function setDescripcion($descrip){
+        $this->descripcion = $descrip;
     }
 
     public function getImagen()
@@ -54,5 +62,29 @@ class Producto
     public function setIdVendedor($idVnd)
     {
         $this->idVendedor =  $idVnd;
+    }
+
+    public function getCategoria(){
+        return $this->Categoria;
+    }
+
+    public function setCategoria($catego){
+        $this->Categoria = $catego;
+    }
+
+    public function getPrecio(){
+        return $this->precio;
+    }
+
+    public function setPrecio($precio){
+        $this->precio = $precio;
+    }
+
+    public function getCantidad(){
+        return $this->cantidad;
+    }
+
+    public function setCantidad($canti){
+        $this->cantidad = $canti;
     }
 }

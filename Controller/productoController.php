@@ -1,11 +1,33 @@
 <?php 
+include_once 'BaseController/BaseController.php';
+include_once '../DAO/producto/DAOProducto.php';
+include_once '../Entidades/Producto.php';
 
-class productoController{
+class productoController extends BaseController{
+
+    //Metodo Para Obtener Los Valores Enviados Por POST
+    private function handleCrearProducto(){
+        $producto = new Producto();
+        $producto->setNombre(htmlspecialchars($_POST['nameProd']));
+        $producto->setDescripcion(htmlspecialchars($_POST['descripcion']));
+        $producto->setCategoria(htmlspecialchars($_POST['categoria']));
+        $producto->setPrecio(htmlspecialchars($_POST['price']));
+        $producto->setCantidad(htmlspecialchars($_POST['quantity']));
+        session_start();
+        if (isset($_SESSION['Usuario'])){
+            $idVendedor = $_SESSION['Usuario']->getIdUsuario();
+            $producto->setIdVendedor($idVendedor);
+        }
+        return $producto;
+    }
+
     /**
      * Metodo Para Crear Un Producto
      */
     public function crearProducto(){
-
+        $producto = $this->handleCrearProducto();
+        $dbProducto = new DaoProducto();
+        $dbProducto->create($producto);
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php 
-    require_once ('../Controller/registroController.php');
-    require_once ('../Utilitarios/ManageSession.php');
+    require_once '../Controller/registroController.php';
+    require_once '../Controller/productoController.php';
+    require_once '../Utilitarios/ManageSession.php';
     $route = $_GET['ruta'];
     // Se Evalua La Ruta Enviada
     $datos = explode(".",$route);
@@ -12,6 +13,9 @@
         llamarFuncionesRegistroController($funcion);
         case ("session"):
         LlamarFuncionesSesion($funcion);
+        break;
+        case ("producto"):
+            llamarFuncionesProducto($funcion);
         break;
     }
 
@@ -27,9 +31,6 @@
             case ("loginUsuario"):
                 $registro->loginUsuario();
             break;
-            case ("ejemplo"):
-                $registro->vistaConValores();
-            break;
         }
     }
 
@@ -40,6 +41,18 @@
         switch($funcion){
             case ("LogOut"):
                 ManageSession::cerrarSession();
+            break;
+        }
+    }
+
+    /**
+     * Metodo Para Llamar A Las Funciones Asocidadas Al Producto
+     */
+    function llamarFuncionesProducto($funcion){
+        switch($funcion){
+            case ("crear"):
+               $prodctContr = new productoController ();
+               $prodctContr->crearProducto();
             break;
         }
     }
