@@ -498,7 +498,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<input type="password" class="form-control" placeholder="password" name="pswd" required>
 						</div>
 						<div class="right-w3l">
-							<input type="submit" class="form-control" value="Log in">
+							<input type="submit" class="form-control" value="Ingresar">
 						</div>
 						<div class="sub-w3l">
 							<div class="custom-control custom-checkbox mr-sm-2">

@@ -11,12 +11,15 @@
     switch ($ruta){
         case ("registrar"):
         llamarFuncionesRegistroController($funcion);
+        break;
         case ("session"):
         LlamarFuncionesSesion($funcion);
         break;
         case ("producto"):
             llamarFuncionesProducto($funcion);
         break;
+        default:
+            header('Location:../View/web/ErrorPages/404.html');
     }
 
     /**
@@ -31,6 +34,8 @@
             case ("loginUsuario"):
                 $registro->loginUsuario();
             break;
+            default:
+            header('Location:../View/web/ErrorPages/404.html');
         }
     }
 
@@ -42,6 +47,8 @@
             case ("LogOut"):
                 ManageSession::cerrarSession();
             break;
+            default:
+            header('Location:../View/web/ErrorPages/404.html');
         }
     }
 
@@ -54,5 +61,7 @@
                $prodctContr = new productoController ();
                $prodctContr->crearProducto();
             break;
+            default:
+            header('Location:../View/web/ErrorPages/404.html');
         }
     }

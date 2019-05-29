@@ -18,12 +18,12 @@ class registroController extends BaseController
     public function registrar()
     {
         //Se Obtienen Las Variables Enviadas Por El Formulario
-        $nombre = $_POST['nombre'];
-        $correo = $_POST['correo'];
-        $contrasena = $_POST['password'];
-        $confirmarContrasena = $_POST['confirmPass'];
-        $apellido = $_POST['apellido'];
-        $nombreUsuario = $_POST['nmUsr'];
+        $nombre =  htmlspecialchars($_POST['nombre']);
+        $correo = htmlspecialchars($_POST['correo']);
+        $contrasena = htmlspecialchars($_POST['password']);
+        $confirmarContrasena = htmlspecialchars($_POST['confirmPass']);
+        $apellido = htmlspecialchars($_POST['apellido']);
+        $nombreUsuario = htmlspecialchars($_POST['nmUsr']);
         try {
             $rol = $this->validarRol($_POST['rol']);
         } catch (Exception $ex) {

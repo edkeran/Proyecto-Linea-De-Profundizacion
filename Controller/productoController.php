@@ -28,6 +28,7 @@ class productoController extends BaseController{
         $producto = $this->handleCrearProducto();
         $dbProducto = new DaoProducto();
         $dbProducto->create($producto);
+        header('Location:../View/web/admin/pages/VendedorPages/VendedorDashboard.php');
     }
 
     /**

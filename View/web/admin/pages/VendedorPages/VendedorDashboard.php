@@ -71,7 +71,7 @@ $productos = $dbProducto->read($usuario->getIdUsuario());
                                     </p>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="number" class="form-control" required placeholder="Precio" name="price" min="5000"> 
+                                            <input type="number" class="form-control" required placeholder="Precio" name="price" min="5000">
                                         </div>
                                     </div>
                                 </div>
@@ -132,6 +132,8 @@ $productos = $dbProducto->read($usuario->getIdUsuario());
                                         <th>Descripcion</th>
                                         <th>Precio</th>
                                         <th>Cantidad Disponible</th>
+                                        <th>Editar Producto</th>
+                                        <th>Eliminar Producto</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -140,6 +142,8 @@ $productos = $dbProducto->read($usuario->getIdUsuario());
                                         <th>Descripcion</th>
                                         <th>Precio</th>
                                         <th>Cantidad Disponible</th>
+                                        <th>Editar Producto</th>
+                                        <th>Eliminar Producto</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -149,6 +153,14 @@ $productos = $dbProducto->read($usuario->getIdUsuario());
                                             <td><?php echo $producto['descripcion']; ?></td>
                                             <td><?php echo $producto['precio']; ?></td>
                                             <td><?php echo $producto['cantidad']; ?></td>
+                                            <td style="text-align:center;"><button type="button" class="btn bg-orange btn-circle waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">mode_edit</i>
+                                                </button>
+                                            </td>
+                                            <td style="text-align:center;"><button type="button" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                                    <i class="material-icons">delete_forever</i>
+                                                </button>
+                                            </td>  
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
