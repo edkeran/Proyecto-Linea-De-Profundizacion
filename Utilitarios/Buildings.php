@@ -29,9 +29,17 @@ class Buildings{
     }
 
     //Funcion Para Construir Un Producto
-    //TODO: PENDIENTE DE ANALISIS
     public static function construirProducto($produc){
         $producto = new Producto();
+        $producto->setId($produc['id']);
+        $producto->setCantidad($produc['cantidad']);
+        $producto->setDescripcion($produc['descripcion']);
+        $producto->setImagen($produc['imagen']);
+        $producto->setIdVendedor($produc['id_vendedor']);
+        $producto->setCategoria($produc['id_categoria']);
+        $producto->setPrecio($produc['precio']);
+        $producto->setNombre($produc['nombre']);
+        return $producto;
     }
 
 

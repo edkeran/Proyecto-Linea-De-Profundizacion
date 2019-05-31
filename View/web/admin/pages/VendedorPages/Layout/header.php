@@ -1,5 +1,7 @@
-<?php  
-require_once '../../../../../Entidades/Usuario.php';
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/Entidades/Usuario.php';
+define("RutaEstilos", '/../../../../../../proyecto/View/web/admin/pages/VendedorPages/');
+
 session_start();
 $usuario = $_SESSION['Usuario'];
 ?>
@@ -13,50 +15,50 @@ $usuario = $_SESSION['Usuario'];
     <title>Panel Administrativo Del Vendedor Shopland</title>
 
     <!-- Favicon-->
-    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <link rel="icon" href=<?php echo RutaEstilos."../../favicon.ico"?> type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href=<?php echo RutaEstilos."../../plugins/bootstrap/css/bootstrap.css"?> rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href=<?php echo RutaEstilos."../../plugins/node-waves/waves.css"?> rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href=<?php echo RutaEstilos."../../plugins/animate-css/animate.css"?> rel="stylesheet" />
 
     <!-- Colorpicker Css -->
-    <link href="../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
+    <link href=<?php echo RutaEstilos."../../plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css"?> rel="stylesheet" />
 
     <!-- Dropzone Css -->
-    <link href="../../plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href=<?php echo RutaEstilos."../../plugins/dropzone/dropzone.css"?> rel="stylesheet">
 
     <!-- Multi Select Css -->
-    <link href="../../plugins/multi-select/css/multi-select.css" rel="stylesheet">
+    <link href=<?php echo RutaEstilos."../../plugins/multi-select/css/multi-select.css"?> rel="stylesheet">
 
     <!-- Bootstrap Spinner Css -->
-    <link href="../../plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+    <link href=<?php echo RutaEstilos."../../plugins/jquery-spinner/css/bootstrap-spinner.css"?> rel="stylesheet">
 
     <!-- Bootstrap Tagsinput Css -->
-    <link href="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href=<?php echo RutaEstilos."../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.css"?> rel="stylesheet">
 
     <!-- Bootstrap Select Css -->
-    <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href=<?php echo RutaEstilos."../../plugins/bootstrap-select/css/bootstrap-select.css"?> rel="stylesheet" />
 
     <!-- noUISlider Css -->
-    <link href="../../plugins/nouislider/nouislider.min.css" rel="stylesheet" />
+    <link href=<?php echo RutaEstilos."../../plugins/nouislider/nouislider.min.css"?> rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href=<?php echo RutaEstilos."../../css/style.css"?> rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="../../css/themes/all-themes.css" rel="stylesheet" />
+    <link href=<?php echo RutaEstilos."../../css/themes/all-themes.css"?> rel="stylesheet" />
 
     <!-- JQuery DataTable Css -->
-    <link href="../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href=<?php echo RutaEstilos."../../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css"?> rel="stylesheet">
 </head>
 
 <body class="theme-red">
@@ -97,7 +99,7 @@ $usuario = $_SESSION['Usuario'];
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="../../index.html">ADMINISTRACION - PANEL VENDEDOR</a>
+                <a class="navbar-brand" href=<?php echo RutaEstilos."../../index.html"?>>ADMINISTRACION - PANEL VENDEDOR</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -303,7 +305,7 @@ $usuario = $_SESSION['Usuario'];
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../../images/user.png" width="48" height="48" alt="User" />
+                    <img src=<?php echo RutaEstilos."../../images/user.png"?> width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $usuario->getNombre()." ".$usuario->getApellido()?></div>
@@ -317,7 +319,7 @@ $usuario = $_SESSION['Usuario'];
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -328,13 +330,13 @@ $usuario = $_SESSION['Usuario'];
                 <ul class="list">
                     <li class="header">NAVEGACION PRINCIPAL</li>
                     <li class="active">
-                        <a href="#">
+                        <a href="<?php echo RutaEstilos.'VendedorDashboard';?>">
                             <i class="material-icons">home</i>
                             <span>Pagina De Inicio</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../../pages/typography.html">
+                        <a href=<?php echo RutaEstilos."../../pages/typography.html"?>>
                             <i class="material-icons">text_fields</i>
                             <span>Mis Ventas</span>
                         </a>

@@ -1,7 +1,7 @@
 <?php
 include_once 'Layout/header.php';
-require_once '../../../../../DAO/categoria/DaoCategoria.php';
-require_once '../../../../../DAO/producto/DAOProducto.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/DAO/categoria/DaoCategoria.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/DAO/producto/DAOProducto.php';
 
 $dbCat = new DaoCategoria();
 $categorias = $dbCat->read();
@@ -10,9 +10,10 @@ $dbCat = null;
 //Obtengo Los Productos Disponibles En La Base De Datos Para La Tabla
 $dbProducto = new DaoProducto();
 $productos = $dbProducto->read($usuario->getIdUsuario());
-
-
+//Limpio La Variable De La DB
+$dbProducto = null;
 ?>
+
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -153,14 +154,22 @@ $productos = $dbProducto->read($usuario->getIdUsuario());
                                             <td><?php echo $producto['descripcion']; ?></td>
                                             <td><?php echo $producto['precio']; ?></td>
                                             <td><?php echo $producto['cantidad']; ?></td>
-                                            <td style="text-align:center;"><button type="button" class="btn bg-orange btn-circle waves-effect waves-circle waves-float">
-                                                    <i class="material-icons">mode_edit</i>
-                                                </button>
+                                            <td style="text-align:center;">
+                                                <form action="/proyecto/HandleRequest/routes?ruta=producto.editarPage" method="post">
+                                                    <input type="hidden" value=<?php echo $producto['id']; ?> name="idProducto" />
+                                                    <button class="btn bg-orange btn-circle waves-effect waves-circle waves-float" type="submit">
+                                                        <i class="material-icons">mode_edit</i>
+                                                    </button>
+                                                </form>
                                             </td>
-                                            <td style="text-align:center;"><button type="button" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
-                                                    <i class="material-icons">delete_forever</i>
-                                                </button>
-                                            </td>  
+                                            <td style="text-align:center;">
+                                                <form action="/proyecto/HandleRequest/routes?ruta=producto.eliminarPage" method="post">
+                                                    <input type="hidden" value=<?php echo $producto['id']; ?> name="idProducto" />
+                                                    <button type="submit" class="btn bg-red btn-circle waves-effect waves-circle waves-float">
+                                                        <i class="material-icons">delete_forever</i>
+                                                    </button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

@@ -24,20 +24,38 @@ class DaoProducto extends Conexion{
 
     }
 
-    //Funcion Para Editar Un Producto
-    function edit(){
-
+    /**
+     * Funcion Para Editar Un Producto
+     *
+     * @param [type] $produc
+     * @return void
+     */
+    function edit(Producto $produc){
+        $conn = parent::getConexion();
+        $sql = 'UPDATE usuario.producto SET nombre = $1, descripcion = $2, id_categoria = $3, precio = $4, cantidad = $5
+        WHERE usuario.producto.id = $6';
+        $result = pg_query_params($conn,$sql,array($produc->getNombre(),$produc->getDescripcion(),
+        $produc->getCategoria(),$produc->getPrecio(),$produc->getCantidad(),$produc->getId())) 
+        or die("Ha Ocurrido Un Error Insperado");
     }
 
-    //Funcion Para Eliminar Un Producto
-    function delete(){
-
+    /**
+     * Funcion Para Eliminar Un Producto
+     *
+     * @param int $idProducto
+     * @return void
+     */
+    function delete($idProducto){
+        $conn = parent::getConexion();
+        $sql = 'UPDATE usuario.producto SET activo = FALSE WHERE id = $1';
+        $result = pg_query_params($conn,$sql,array($idProducto)) or 
+        die("Ha Ocurrido Un Error Inesperado");
     }
 
-    //Funcion Para Traer Todos Los Productos
+    //Funcion Para Traer Todos Los Productos Activos
     function read($idVendedor){
         $conn = parent::getConexion();
-        $query = 'SELECT * FROM usuario.producto WHERE id_vendedor = $1';
+        $query = 'SELECT * FROM usuario.producto WHERE id_vendedor = $1 AND activo';
         $result =pg_query_params($conn,$query,array($idVendedor));
         $datos = array();
         while($row = pg_fetch_assoc($result)){
@@ -53,6 +71,14 @@ class DaoProducto extends Conexion{
         $result = pg_query_params($conn,$query,array($busqueda, $busqueda));
         //Retorno La Lista De Los Elementos
         return sizeof($result[0])>0 ? $result[0] : false;
+    }
+
+    //Metodo Para Obtener Un Producto A Partir Del ID Del Producto
+    function readById($idProd){
+        $conn = parent::getConexion();
+        $query = 'SELECT * FROM usuario.producto WHERE id = $1';
+        $result = pg_query_params($conn,$query,array($idProd));
+        return $result;
     }
     
 }
