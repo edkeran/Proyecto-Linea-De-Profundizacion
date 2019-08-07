@@ -3,11 +3,9 @@
 		<div class="footer-top-first">
 			<div class="container py-md-5 py-sm-4 py-3">
 				<!-- footer first section -->
-				<h2 class="footer-top-head-w3l font-weight-bold mb-2">Electronics :</h2>
+				<h2 class="footer-top-head-w3l font-weight-bold mb-2">Shopland :</h2>
 				<p class="footer-main mb-4">
-					If you're considering a new laptop, looking for a powerful new car stereo or shopping for a new HDTV, we make it easy to
-					find exactly what you need at a price you can afford. We offer Every Day Low Prices on TVs, laptops, cell phones, tablets
-					and iPads, video games, desktop computers, cameras and camcorders, audio, video and more.</p>
+					Shopland te ofrece la entrega de tu producto de manera completamente gratuita sin ningun tipo de peticion y/o detalle.</p>
 				<!-- //footer first section -->
 				<!-- footer second section -->
 				<div class="row w3l-grids-footer border-top border-bottom py-sm-4 py-3">
@@ -17,8 +15,8 @@
 								<i class="fas fa-dolly"></i>
 							</div>
 							<div class="col-8 text-form-footer">
-								<h3>Free Shipping</h3>
-								<p>on orders over $100</p>
+								<h3>Envio Gratuito</h3>
+								<p>En Cualquier Tipo De Orden</p>
 							</div>
 						</div>
 					</div>
@@ -28,8 +26,8 @@
 								<i class="fas fa-shipping-fast"></i>
 							</div>
 							<div class="col-8 text-form-footer">
-								<h3>Fast Delivery</h3>
-								<p>World Wide</p>
+								<h3>Entrega Rapida</h3>
+								<p>A Nivel Nacional</p>
 							</div>
 						</div>
 					</div>
@@ -39,8 +37,8 @@
 								<i class="far fa-thumbs-up"></i>
 							</div>
 							<div class="col-8 text-form-footer">
-								<h3>Big Choice</h3>
-								<p>of Products</p>
+								<h3>Gran Eleccion</h3>
+								<p>de Productos</p>
 							</div>
 						</div>
 					</div>

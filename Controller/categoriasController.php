@@ -1,6 +1,6 @@
 <?php 
-require_once 'C:\xampp\htdocs\Proyecto\DAO\categoria\DaoCategoria.php';
-require_once 'C:\xampp\htdocs\Proyecto\Entidades\Categoria.php';
+require_once $_SERVER['DOCUMENT_ROOT'] .'\Proyecto\DAO\categoria\DaoCategoria.php';
+require_once $_SERVER['DOCUMENT_ROOT'] .'\Proyecto\Entidades\Categoria.php';
 
 /**
  * Controlador Para Manejar La Logica Del Las Categorias Del Aplicativo

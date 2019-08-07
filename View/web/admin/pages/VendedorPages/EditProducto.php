@@ -1,5 +1,5 @@
 <?php
-include_once 'Layout/header.php';
+require_once 'Layout/header.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/proyecto/Entidades/Producto.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/proyecto/DAO/categoria/DaoCategoria.php';
 
@@ -45,7 +45,7 @@ $dbCat = null;
                                     </p>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" required placeholder="Nombra Tu Producto" name="nameProd" value=<?php echo $this->datosVista->getNombre(); ?>>
+                                            <input type="text" class="form-control" required placeholder="Nombra Tu Producto" name="nameProd" minlength="7" maxlength="30" value=<?php echo $this->datosVista->getNombre(); ?>>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@ $dbCat = null;
                                     </p>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <textarea rows="4" class="form-control no-resize" required placeholder="Ingresa Una Descripcion Del Producto..." maxlength="500" name="descripcion"><?php echo $this->datosVista->getDescripcion() ?></textarea>
+                                            <textarea rows="4" class="form-control no-resize" required placeholder="Ingresa Una Descripcion Del Producto..." maxlength="450" name="descripcion" ><?php echo $this->datosVista->getDescripcion() ?></textarea>
                                         </div>
                                     </div>
                                 </div>

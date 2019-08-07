@@ -1,11 +1,12 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/Entidades/Usuario.php';
 define("RutaEstilos", '/../../../../../../proyecto/View/web/admin/pages/VendedorPages/');
-
+error_reporting(0); 
 session_start();
 $usuario = $_SESSION['Usuario'];
 ?>
 
+<?php if($usuario->getRol() == 2): ?>
 <!DOCTYPE html>
 <html>
 
@@ -319,7 +320,7 @@ $usuario = $_SESSION['Usuario'];
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Cerrar Sesion</a></li>
+                            <li><a href=<?php echo "/proyecto/HandleRequest/routes?ruta=session.LogOut"?>><i class="material-icons">input</i>Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </div>
@@ -506,3 +507,6 @@ $usuario = $_SESSION['Usuario'];
         </aside>
         <!-- #END# Right Sidebar -->
     </section>
+<?php else:?>
+    <h1>No Posee Los Permisos Suficientes Para Acceder A Esta Pantalla</h1>
+<?php endif;?>

@@ -28,6 +28,12 @@
             return $cadenaLimpia;
         }
 
+        public static function limpiarSqlCorrupto($msg){
+            $cadenaLimpia = str_replace("'","",$msg);
+            $cadenaLimpia = str_replace("--","",$msg);
+            return $cadenaLimpia;
+        }
+
         //Funcion Para Validar El Rol Del Usuario Para Retornalo a Su Respeciva Vista
         public static function validarRol($rol){
             switch ($rol){

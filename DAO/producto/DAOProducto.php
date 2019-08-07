@@ -12,10 +12,10 @@ class DaoProducto extends Conexion{
     function create(Producto $producto){
         try{
             $conn = parent::getConexion();
-            $query = "INSERT INTO usuario.producto (nombre,descripcion,id_vendedor,id_categoria,precio,cantidad) 
-            VALUES($1,$2,$3,$4,$5,$6)";
+            $query = "INSERT INTO usuario.producto (nombre,descripcion,id_vendedor,imagen,id_categoria,precio,cantidad) 
+            VALUES($1,$2,$3,$4,$5,$6,$7)";
             $result = pg_query_params($conn,$query,array($producto->getNombre(), $producto->getDescripcion(),
-            $producto->getIdVendedor(),$producto->getCategoria(),
+            $producto->getIdVendedor(),$producto->getImagen(),$producto->getCategoria(),
             $producto->getPrecio(),$producto->getCantidad())) 
             or die("Ha Ocurrido Un Error Inesperado En PHP");
         }catch(Exception $e){
@@ -65,19 +65,37 @@ class DaoProducto extends Conexion{
     }
 
     //Funcion Para Traer Los Productos Segun El Criterio De Busqueda
-    function readByString($busqueda){
+    public function readByString($busqueda){
         $conn = parent::getConexion();
-        $query = 'SELECT * FROM usuario.producto WHERE nombre LIKE %$1% OR descripcion LIKE%$2%';
-        $result = pg_query_params($conn,$query,array($busqueda, $busqueda));
+        $busqueda = Util::limpiarSqlCorrupto($busqueda);
+        $query = 'SELECT * FROM usuario.buscarbycadena($1::text)';
+        $result = pg_query_params($conn,$query,array($busqueda));
         //Retorno La Lista De Los Elementos
-        return sizeof($result[0])>0 ? $result[0] : false;
+        return $result;
     }
 
-    //Metodo Para Obtener Un Producto A Partir Del ID Del Producto
+    /**
+     * Metodo Para Obtener Un Producto A Partir Del ID Del Producto
+     *
+     * @param int $idProd
+     * @return void
+     */
     function readById($idProd){
         $conn = parent::getConexion();
         $query = 'SELECT * FROM usuario.producto WHERE id = $1';
         $result = pg_query_params($conn,$query,array($idProd));
+        return $result;
+    }
+
+    /**
+     * Metodo para Leer La Lista De Los Productos
+     * 
+     * @return void
+     */
+    function readListaDeProductos(){
+        $conn = parent::getConexion();
+        $query = 'SELECT * FROM usuario.producto WHERE activo IS TRUE';
+        $result = pg_query($conn,$query);
         return $result;
     }
     

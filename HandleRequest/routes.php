@@ -92,6 +92,14 @@ function llamarFuncionesProducto($funcion)
             $prodctContr = new productoController();
             $prodctContr->deleteProducto($_POST['idProducto']);
             break;
+        case("search"):
+            $prodctContr = new productoController();
+            if(isset($_POST['cadena'])){
+                $prodctContr->buscar($_POST['cadena']);
+            }else{
+                header('Location:index');
+            }
+            break;
         default:
             header('Location:../View/web/ErrorPages/404.html');
     }

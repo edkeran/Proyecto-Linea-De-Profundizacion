@@ -72,7 +72,7 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" minlength="4" placeholder="Contraseña" required>
+                            <input type="password" class="form-control" name="password" minlength="4" placeholder="Contraseña" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
                         </div>
                     </div>
                     <div class="input-group">
@@ -92,7 +92,7 @@
                     <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Registrate</button>
 
                     <div class="m-t-25 m-b--5 align-center">
-                        <a href="sign-in.html">Ya Tienes Una Cuenta?</a>
+                        <a href="/proyecto/View/web/index">Ya Tienes Una Cuenta?</a>
                     </div>
                 </form>
             </div>

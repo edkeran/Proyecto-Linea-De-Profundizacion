@@ -1,11 +1,10 @@
-<?php require_once '../../Entidades/Usuario.php'; ?>
+<?php require_once  $_SERVER['DOCUMENT_ROOT'] . '/proyecto/Entidades/Usuario.php'; ?>
 <?php session_start(); ?>
 <?php include_once 'Layout/Header.php'; ?>
-<?php include_once '../../Controller/productoController.php';
-require_once '../../Entidades/Producto.php';
+<?php include_once  $_SERVER['DOCUMENT_ROOT'] . '/proyecto/Controller/productoController.php';
+require_once  $_SERVER['DOCUMENT_ROOT'] . '/proyecto/Entidades/Producto.php';
 $productoControll = new productoController();
-$lstProductosDestacados = null;
-$lstProductosDestacados = $productoControll->obtenerProductosDestacados();
+$lstProductosDestacados = $this->datosVista;
 setlocale(LC_MONETARY, "es_CO.UTF-8");
 ?>
 <!-- banner -->

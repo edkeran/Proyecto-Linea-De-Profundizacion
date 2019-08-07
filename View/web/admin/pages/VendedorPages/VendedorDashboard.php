@@ -1,7 +1,12 @@
 <?php
 include_once 'Layout/header.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/DAO/categoria/DaoCategoria.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/DAO/producto/DAOProducto.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/proyecto/DAO/categoria/DaoCategoria.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/proyecto/DAO/producto/DAOProducto.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/proyecto/Utilitarios/ManageSession.php';
+
+//Valido Que El Vendedor Tenga Una Session Abierta
+$utilSession = new ManageSession();
+$utilSession->validarRolUsuario(2);
 
 $dbCat = new DaoCategoria();
 $categorias = $dbCat->read();
@@ -13,7 +18,7 @@ $productos = $dbProducto->read($usuario->getIdUsuario());
 //Limpio La Variable De La DB
 $dbProducto = null;
 ?>
-
+<?php if($usuario->getRol() == 2):?>
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -41,7 +46,7 @@ $dbProducto = null;
                             </li>
                         </ul>
                     </div>
-                    <form action="../../../../../HandleRequest/routes?ruta=producto.crear" id="frmProducto" method="post">
+                    <form action="../../../../../HandleRequest/routes?ruta=producto.crear" id="frmProducto" method="post" enctype="multipart/form-data">
                         <div class="body">
                             <div class="row clearfix">
                                 <div class="col-md-6">
@@ -50,7 +55,7 @@ $dbProducto = null;
                                     </p>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" required placeholder="Nombra Tu Producto" name="nameProd">
+                                            <input type="text" class="form-control" required placeholder="Nombra Tu Producto" name="nameProd" minlength="7" maxlength="30">
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +99,19 @@ $dbProducto = null;
                                     </p>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <textarea rows="4" class="form-control no-resize" required placeholder="Ingresa Una Descripcion Del Producto..." maxlength="500" name="descripcion"></textarea>
+                                            <textarea rows="4" class="form-control no-resize" required placeholder="Ingresa Una Descripcion Del Producto..." maxlength="450" name="descripcion"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <p>
+                                        <b>Imagen Del Producto</b>
+                                    </p>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="file" name="archivo" accept="image/png, .jpeg, .jpg, image/gif" required>
                                         </div>
                                     </div>
                                 </div>
@@ -181,8 +198,8 @@ $dbProducto = null;
         </div>
         <!-- #END# Tabla -->
         <!--FIN TABLA-->
-
     </div>
 </section>
+<?php endif;?>
 
 <?php include_once 'Layout/footer.php'; ?>

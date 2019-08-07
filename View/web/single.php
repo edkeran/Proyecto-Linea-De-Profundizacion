@@ -1,4 +1,14 @@
-<?php include "Layout/Header.php";?>
+<?php include_once "Layout/Header.php";
+require_once "../../Controller/productoController.php";
+require_once "../../Entidades/Producto.php";
+//Obtengo El Producto Enviado Por El Formaulario
+$productoControl = new productoController();
+if(isset($_GET['prodId'])){
+	//Busco El Producto
+	$producto = $productoControl->obtenerProductoSingle((int) $_GET['prodId']);
+}
+?>
+<?php if($producto != null):?>
 	<!-- banner-2 -->
 	<div class="page-head_agile_info_w3l">
 
@@ -10,10 +20,10 @@
 			<div class="container">
 				<ul class="w3_short">
 					<li>
-						<a href="index.html">Home</a>
+						<a href="index">Pagina Principal</a>
 						<i>|</i>
 					</li>
-					<li>Single Product 1</li>
+					<li>Detalle Producto</li>
 				</ul>
 			</div>
 		</div>
@@ -25,26 +35,26 @@
 		<div class="container py-xl-4 py-lg-2">
 			<!-- tittle heading -->
 			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-				<span>S</span>ingle
-				<span>P</span>age</h3>
+				<span>D</span>etalle
+				<span>P</span>roducto</h3>
 			<!-- //tittle heading -->
 			<div class="row">
 				<div class="col-lg-5 col-md-8 single-right-left ">
 					<div class="grid images_3_of_2">
 						<div class="flexslider">
 							<ul class="slides">
-								<li data-thumb="images/si1.jpg">
+								<li data-thumb=<?php echo "/proyecto/ImagenesCargadas/".$producto->getImagen()?>>
 									<div class="thumb-image">
-										<img src="images/si1.jpg" data-imagezoom="true" class="img-fluid" alt=""> </div>
+										<img src="<?php echo "/proyecto/ImagenesCargadas/".$producto->getImagen()?>" data-imagezoom="true" class="img-fluid" alt=""> </div>
 								</li>
-								<li data-thumb="images/si2.jpg">
+								<!-- <li data-thumb="images/si2.jpg">
 									<div class="thumb-image">
 										<img src="images/si2.jpg" data-imagezoom="true" class="img-fluid" alt=""> </div>
 								</li>
 								<li data-thumb="images/si3.jpg">
 									<div class="thumb-image">
 										<img src="images/si3.jpg" data-imagezoom="true" class="img-fluid" alt=""> </div>
-								</li>
+								</li> -->
 							</ul>
 							<div class="clearfix"></div>
 						</div>
@@ -52,47 +62,20 @@
 				</div>
 
 				<div class="col-lg-7 single-right-left simpleCart_shelfItem">
-					<h3 class="mb-3">Samsung Galaxy J7 Prime (Gold, 16 GB) (3 GB RAM)</h3>
+					<h3 class="mb-3"><?php echo $producto->getNombre()?></h3>
 					<p class="mb-3">
-						<span class="item_price">$200.00</span>
-						<del class="mx-2 font-weight-light">$280.00</del>
-						<label>Free delivery</label>
+						<span class="item_price">$<?php echo number_format($producto->getPrecio(),0) ?></span>
+						<del class="mx-2 font-weight-light">$<?php echo number_format($producto->getPrecio() + $producto->getPrecio() * 0.10,0) ?></del>
+						<label>Envio Gratuito</label>
 					</p>
-					<div class="single-infoagile">
-						<ul>
-							<li class="mb-3">
-								Cash on Delivery Eligible.
-							</li>
-							<li class="mb-3">
-								Shipping Speed to Delivery.
-							</li>
-							<li class="mb-3">
-								EMIs from $655/month.
-							</li>
-							<li class="mb-3">
-								Bank OfferExtra 5% off* with Axis Bank Buzz Credit CardT&C
-							</li>
-						</ul>
-					</div>
+					
 					<div class="product-single-w3l">
 						<p class="my-3">
 							<i class="far fa-hand-point-right mr-2"></i>
-							<label>1 Year</label>Manufacturer Warranty</p>
+							<label>1 Año</label> De Garantia</p>
 						<ul>
-							<li class="mb-1">
-								3 GB RAM | 16 GB ROM | Expandable Upto 256 GB
-							</li>
-							<li class="mb-1">
-								5.5 inch Full HD Display
-							</li>
-							<li class="mb-1">
-								13MP Rear Camera | 8MP Front Camera
-							</li>
-							<li class="mb-1">
-								3300 mAh Battery
-							</li>
-							<li class="mb-1">
-								Exynos 7870 Octa Core 1.6GHz Processor
+							<li>
+								<?php echo $producto->getDescripcion()?>
 							</li>
 						</ul>
 						<p class="my-sm-4 my-3">
@@ -106,13 +89,13 @@
 									<input type="hidden" name="cmd" value="_cart" />
 									<input type="hidden" name="add" value="1" />
 									<input type="hidden" name="business" value=" " />
-									<input type="hidden" name="item_name" value="Samsung Galaxy J7 Prime" />
-									<input type="hidden" name="amount" value="200.00" />
-									<input type="hidden" name="discount_amount" value="1.00" />
-									<input type="hidden" name="currency_code" value="USD" />
+									<input type="hidden" name="item_name" value="<?php echo $producto->getNombre() ?>" />
+									<input type="hidden" name="amount" value="<?php echo $producto->getPrecio() + $producto->getPrecio() * 0.10 ?>" />
+									<input type="hidden" name="discount_amount" value="<?php echo $producto->getPrecio() * 0.10 ?>" />
+									<input type="hidden" name="currency_code" value="COP" />
 									<input type="hidden" name="return" value=" " />
 									<input type="hidden" name="cancel_return" value=" " />
-									<input type="submit" name="submit" value="Add to cart" class="button" />
+									<input type="submit" name="submit" value="Añadir Al Carrito" class="button" />
 								</fieldset>
 							</form>
 						</div>
@@ -124,7 +107,7 @@
 	<!-- //Single Page -->
 
 	<!-- middle section -->
-	<div class="join-w3l1 py-sm-5 py-4">
+	<!-- <div class="join-w3l1 py-sm-5 py-4">
 		<div class="container py-xl-4 py-lg-2">
 			<div class="row">
 				<div class="col-lg-6">
@@ -157,7 +140,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!-- middle section -->
 	<?php include_once "Layout/Footer.php";?>
 
@@ -179,4 +162,7 @@
 		});
 	</script>
 	<!-- //FlexSlider-->
-
+	<?php else:?>
+	<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+		El Producto Consultado No Se Encuentra Disponible</h3>
+	<?php endif;?>

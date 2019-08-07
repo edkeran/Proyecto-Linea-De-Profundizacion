@@ -1,6 +1,6 @@
 <?php 
-require_once('../Entidades/Usuario.php');
-require_once('../Entidades/Rol.php');
+require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/Entidades/Usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/proyecto/Entidades/Rol.php';
 
 /**
  * Clase Para Realizar La Respectiva Construccion De Las Entidades De La Base De Datos
@@ -42,5 +42,17 @@ class Buildings{
         return $producto;
     }
 
-
+    /**
+     * Metodo Para La Construccion De La Lista De Productos
+     * 
+     * @return void
+     */
+    public static function constriurProductoLista($result){
+        $data = array();
+        while ($row = pg_fetch_assoc($result)){
+            $producto = Buildings::construirProducto($row);
+            array_push($data,$producto);
+        }
+        return $data;
+    }
 }
